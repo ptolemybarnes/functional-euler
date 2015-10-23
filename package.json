@@ -1,0 +1,23 @@
+{
+  "name": "functional-euler",
+  "version": "1.0.0",
+  "description": "Solutions to project-euler, written in a functional style.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ptolemybarnes/functional-euler"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ptolemybarnes/functional-euler/issues"
+  },
+  "homepage": "https://github.com/ptolemybarnes/functional-euler",
+  "dependencies": {
+    "jasmine-node": "^1.14.5",
+    "ramda": "^0.18.0"
+  }
+}
