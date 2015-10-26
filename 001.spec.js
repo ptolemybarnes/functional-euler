@@ -15,10 +15,10 @@ var filterWithTwo = function(firstCondition, secondCondition) {
 
 var selectMultiplesOfThreeOrFive = filterWithTwo(selectMultiplesOfThree, selectMultiplesOfFive);
 var adder                        = function(sum, value) { return sum + value };
-var findSumOfMultiplesBelow      = R.compose(R.reduce(adder, 0), filterWithTwo(selectMultiplesOfThree, selectMultiplesOfFive));
+var findSumOfMultiplesWithin      = R.compose(R.reduce(adder, 0), filterWithTwo(selectMultiplesOfThree, selectMultiplesOfFive));
 
 describe('001', function() { 
   it('finds the sum of all multiples of 3 or 5 below 1000', function() {
-    expect(findSumOfMultiplesBelow(R.range(1, 1000))).toEqual(233168)
+    expect(findSumOfMultiplesWithin(R.range(1, 1000))).toEqual(233168)
   });
 });
