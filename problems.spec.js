@@ -13,3 +13,9 @@ describe('002: Even Fibonacci numbers', function() {
   });
 });
 
+describe('002: Largest prime factor', function() {
+  it('finds the largest prime factor of the number 600851475143', function() {
+    expect(P.largestPrimeFactorOf(600851475143)).toEqual(6857)
+  });
+});
+
