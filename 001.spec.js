@@ -2,23 +2,10 @@
 // Find the sum of all the multiples of 3 or 5 below 1000.
 //
 var R = require('ramda');
-
-
-var selectMultiplesOfThree = function(value) { return value % 3 == 0 };
-var selectMultiplesOfFive  = function(value) { return value % 5 == 0 };
-
-var filterWithTwo = function(firstCondition, secondCondition) {
-  return R.filter(function(value) {
-    return (firstCondition(value) || secondCondition(value))
-  })
-}
-
-var selectMultiplesOfThreeOrFive = filterWithTwo(selectMultiplesOfThree, selectMultiplesOfFive);
-var adder                        = function(sum, value) { return sum + value };
-var findSumOfMultiplesWithin      = R.compose(R.reduce(adder, 0), filterWithTwo(selectMultiplesOfThree, selectMultiplesOfFive));
+var P = require('./solutions.js');
 
 describe('001', function() { 
   it('finds the sum of all multiples of 3 or 5 below 1000', function() {
-    expect(findSumOfMultiplesWithin(R.range(1, 1000))).toEqual(233168)
+    expect(P.findSumOfMultiplesWithin(R.range(1, 1000))).toEqual(233168)
   });
 });
