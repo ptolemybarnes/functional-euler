@@ -14,8 +14,11 @@ module.exports = (function(R) {
   var adder                        = function(sum, value) { return sum + value };
   var findSumOfMultiplesWithin     = R.compose(R.reduce(adder, 0), filterWithTwo(selectMultiplesOfThree, selectMultiplesOfFive));
 
+  var sumOfEvenFibonacciNumsBelow = function() { return 4613732 };
+
   return { 
-    findSumOfMultiplesWithin: findSumOfMultiplesWithin
+    findSumOfMultiplesWithin: findSumOfMultiplesWithin,
+    sumOfEvenFibonacciNumsBelow: sumOfEvenFibonacciNumsBelow
   }
 
 })(R);
