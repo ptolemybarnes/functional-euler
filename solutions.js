@@ -8,12 +8,13 @@ module.exports = (function(R) {
     })
   }
 
-  var selectMultiplesOfThree = function(value) { return value % 3 == 0 };
-  var selectMultiplesOfFive  = function(value) { return value % 5 == 0 };
-  var selectMultiplesOfTwo   = function(value) { return value % 2 == 0 };
-  var selectMultiplesOfThreeOrFive = filterWithTwo(selectMultiplesOfThree, selectMultiplesOfFive);
+  var selectMultiplesOf = R.curry(function(divisor, value) {
+    return value % divisor == 0;
+  })
+
   var adder                        = function(sum, value) { return sum + value };
-  var findSumOfMultiplesWithin     = R.compose(R.reduce(adder, 0), filterWithTwo(selectMultiplesOfThree, selectMultiplesOfFive));
+  var findSumOfMultiplesWithin     = R.compose(R.reduce(adder, 0), filterWithTwo(selectMultiplesOf(3), selectMultiplesOf(5)));
+
   var generateFibonacciRange       = function(max) {
     var output = [0, 1];
     while(output[output.length - 1] < max) { 
@@ -23,7 +24,7 @@ module.exports = (function(R) {
   }
 
   var sumOfEvenFibonacciNumsBelow = function(max) {
-    return generateFibonacciRange(max).filter(selectMultiplesOfTwo).reduce(adder)
+    return generateFibonacciRange(max).filter(selectMultiplesOf(2)).reduce(adder)
   };
 
   return { 
